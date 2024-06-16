@@ -12,7 +12,7 @@ pygame.display.set_caption("Игра Тир")
 icon = pygame.image.load("img/4ca3dd872b78ad87757acf5fccd6edb7.jpg")
 pygame.display.set_icon(icon)
 
-target_image = pygame.image.load("img/apple_red")
+target_image = pygame.image.load("img/apple_red.png")
 target_width = 50
 target_height = 50
 target_x = random.randint(0, SCREEN_WIDTH - target_width)
@@ -25,6 +25,15 @@ color = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
 
 running = True
 while running:
+    screen.fill(color)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_x, mouse_y = pygame.mouse.get_pos()
+            if target_x < mouse_x < target_x + target_width and target_y < mouse_y < target_y + target_height:
+                pass
+                
     pass
 
 pygame.quit()
